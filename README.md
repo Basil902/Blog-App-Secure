@@ -1,2 +1,2 @@
 # Blog-App
-Blog app to test ai-generated sqli attacks on.
+Blog app to test sqli attacks on.
