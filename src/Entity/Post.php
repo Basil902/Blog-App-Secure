@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\PostsRepository;
+use App\Repository\PostRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: PostsRepository::class)]
-class Posts
+#[ORM\Entity(repositoryClass: PostRepository::class)]
+class Post
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -23,15 +23,15 @@ class Posts
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private users $author_id;
+    private user $author_id;
 
     #[ORM\Column]
     public \DateTimeImmutable $created_at;
 
     /**
-     * @var Collection<int, Comments>
+     * @var Collection<int, Comment>
      */
-    #[ORM\OneToMany(targetEntity: Comments::class, mappedBy: 'post_id', orphanRemoval: true)]
+    #[ORM\OneToMany(targetEntity: Comment::class, mappedBy: 'post_id', orphanRemoval: true)]
     private Collection $comments;
 
     public function __construct()
@@ -44,12 +44,12 @@ class Posts
         return $this->id;
     }
 
-    public function getAuthorId(): ?users
+    public function getAuthorId(): ?user
     {
         return $this->author_id;
     }
 
-    public function setAuthorId(?users $author_id): static
+    public function setAuthorId(?user $author_id): static
     {
         $this->author_id = $author_id;
 
@@ -57,14 +57,14 @@ class Posts
     }
 
     /**
-     * @return Collection<int, Comments>
+     * @return Collection<int, Comment>
      */
     public function getComments(): Collection
     {
         return $this->comments;
     }
 
-    public function addComment(Comments $comment): static
+    public function addComment(Comment $comment): static
     {
         if (!$this->comments->contains($comment)) {
             $this->comments->add($comment);
@@ -74,7 +74,7 @@ class Posts
         return $this;
     }
 
-    public function removeComment(Comments $comment): static
+    public function removeComment(Comment $comment): static
     {
         if ($this->comments->removeElement($comment)) {
             // set the owning side to null (unless already changed)
