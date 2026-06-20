@@ -1,0 +1,42 @@
+{% extends "base.html.twig" %}
+
+{% block title %} {{ post.title }} {% endblock %}
+
+{% block body %}
+
+<div class="postCard"
+    style="border:2px solid black; margin:5px 0;padding:10px;"
+    >
+    <h3>
+        {{ post.title }}
+    </h3>
+    <h5>
+        by {{ post.authorId.name }}
+    </h5>
+    <p>
+        {{ post.content }}
+    </p>
+
+    <div class="commentSection" 
+        style="border:1px solid red"
+        >
+        {% if post.comments %}
+            <p>
+                Kommentare:
+            </p>
+            <ul>
+                {% for comment in post.comments %}
+                    <li>
+                        by {{ comment.userId.name }}
+
+                        <p>
+                            {{ comment.content }}
+                        </p>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}  
+    </div>
+</div>
+
+{% endblock %}
