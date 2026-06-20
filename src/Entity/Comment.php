@@ -15,7 +15,7 @@ class Comment
 
     #[ORM\ManyToOne(inversedBy: 'comment')]
     #[ORM\JoinColumn(nullable: false)]
-    private post $postId;
+    private Post $postId;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
@@ -32,12 +32,12 @@ class Comment
         return $this->id;
     }
 
-    public function getPostId(): ?post
+    public function getPostId(): ?Post
     {
         return $this->postId;
     }
 
-    public function setPostId(?post $postId): static
+    public function setPostId(?Post $postId): static
     {
         $this->postId = $postId;
 
