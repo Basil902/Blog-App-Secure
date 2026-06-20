@@ -23,7 +23,7 @@ class User
     public string $name;
 
     #[ORM\Column(length: 255)]
-    public \DateTimeImmutable $created_at;
+    public \DateTimeImmutable $createdAt;
 
 
     public function getId(): ?int

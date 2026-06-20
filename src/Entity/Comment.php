@@ -15,17 +15,17 @@ class Comment
 
     #[ORM\ManyToOne(inversedBy: 'comment')]
     #[ORM\JoinColumn(nullable: false)]
-    private post $post_id;
+    private post $postId;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private user $user_id;
+    private user $userId;
 
     #[ORM\Column(length: 255)]
     public string $content;
 
     #[ORM\Column]
-    public \DateTimeImmutable $created_at;
+    public \DateTimeImmutable $createdAt;
 
     public function getId(): ?int
     {
@@ -34,24 +34,24 @@ class Comment
 
     public function getPostId(): ?post
     {
-        return $this->post_id;
+        return $this->postId;
     }
 
-    public function setPostId(?post $post_id): static
+    public function setPostId(?post $postId): static
     {
-        $this->post_id = $post_id;
+        $this->postId = $postId;
 
         return $this;
     }
 
     public function getUserId(): ?user
     {
-        return $this->user_id;
+        return $this->userId;
     }
 
-    public function setUserId(?user $user_id): static
+    public function setUserId(?user $userId): static
     {
-        $this->user_id = $user_id;
+        $this->userId = $userId;
 
         return $this;
     }

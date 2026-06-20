@@ -23,10 +23,10 @@ class Post
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private user $author_id;
+    private User $authorId;
 
     #[ORM\Column]
-    public \DateTimeImmutable $created_at;
+    public \DateTimeImmutable $createdAt;
 
     /**
      * @var Collection<int, Comment>
@@ -44,14 +44,14 @@ class Post
         return $this->id;
     }
 
-    public function getAuthorId(): ?user
+    public function getAuthorId(): ?User
     {
-        return $this->author_id;
+        return $this->authorId;
     }
 
-    public function setAuthorId(?user $author_id): static
+    public function setAuthorId(?User $authorId): static
     {
-        $this->author_id = $author_id;
+        $this->authorId = $authorId;
 
         return $this;
     }
