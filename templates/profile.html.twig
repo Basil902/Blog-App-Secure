@@ -1,0 +1,51 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Profile{% endblock %}
+
+{% block body %}
+
+{% if app.user %}
+
+<div 
+    style="margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:10px"
+    >
+    <p>
+        Eingeloggt als {{ app.user.name }}
+    </p>
+    <a href="{{ path('app_logout') }}"
+        style="background-color:#F0F0F0;text-decoration:none;color:black;padding:3px;border:1px solid black;border-radius:5px"
+        >
+        Logout
+    </a>    
+</div>
+
+{% endif %}
+
+<div>
+    <h3>
+        Mein Profil
+    </h3>
+
+    <form action="{{ path('app_profile') }}" method="POST">
+        <label for="name"></label>
+
+        <input type="text" name="name" id="name" placeholder="Name ändern...">
+
+        <button type="submit">
+            Speichern
+        </button>
+    </form>
+</div>
+
+<div>
+    {% if newName %}
+        <div>
+            <p>
+                Name geändert in: {{ newName }} 
+            </p>
+        </div>
+    {% endif %}
+    
+</div>
+
+{% endblock %}
