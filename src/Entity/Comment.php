@@ -19,7 +19,7 @@ class Comment
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private user $userId;
+    private User $userId;
 
     #[ORM\Column(length: 255)]
     public string $content;
