@@ -5,6 +5,8 @@ namespace App\Repository;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Security\Core\Exception\UserNotFoundException;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @extends ServiceEntityRepository<User>
@@ -15,6 +17,33 @@ class UserRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, User::class);
     }
+
+    public function isNameAvailable(string $name): bool
+    {
+        $found = $this->createQueryBuilder('u')
+            ->andWhere('u.name = :val')
+            ->setParameter('val', $name)
+            ->getQuery()
+            ->getOneOrNullResult();
+
+        return null == $found ? true : false;
+    }
+
+    public function loadUserByIdentifier(string $identifier): UserInterface
+    {
+        $user = $this->createQueryBuilder('u')
+            ->where('u.email = :email')
+            ->setParameter('email', $identifier)
+            ->getQuery()
+            ->getOneOrNullResult();
+
+        if (!$user) {
+            throw new UserNotFoundException();
+        }
+        
+        return $user;
+    }
+
 
 //    /**
 //     * @return Users[] Returns an array of Users objects
