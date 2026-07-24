@@ -8,7 +8,7 @@
   
 Installationsanweisungen
 
-1. Damit composer install keine Exceptions wirft, muss zuerst eine neue .env Datei erstellt werden. Danach den Inhalt aus der .env.example hineinkopieren.
+1. Damit composer install keine Exceptions wirft, muss zuerst eine neue .env Datei erstellt werden. Danach den Inhalt aus der .env.example hineinkopieren und das Kommentarzeichen vor der MySQL Verbindung entfernen.
 
 2. Die Dependencies installieren:
 ````
