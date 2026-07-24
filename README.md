@@ -8,21 +8,22 @@
   
 Installationsanweisungen
 
-Damit composer install keine Exceptions wirft, muss zuerst eine neue .env Datei erstellt werden. Danach den Inhalt aus der .env.example hineinkopieren.
+1. Damit composer install keine Exceptions wirft, muss zuerst eine neue .env Datei erstellt werden. Danach den Inhalt aus der .env.example hineinkopieren.
 
-1. Die Dependencies installieren:
+2. Die Dependencies installieren:
 ````
 composer install
 ````
 
-2. Lokaler Server starten:
+3. Lokaler Server starten:
 ```
 symfony server:start
 ```
 Die App ist danach unter http://localhost:8000 erreichbar.
 
 ## Datenbank einrichten und Testdaten vorbereiten
-Vor dem Testen müssen die Tabellen in der Datenbank erstellt und mit Testdaten befüllt werden. Dafür muss zuerst der DSN String in der .env Datei angepasst werden.
+
+Vor dem Testen müssen die Tabellen in der Datenbank erstellt und mit Testdaten befüllt werden.
 
 1. Die Datenbankverbindung in der .env entsprechend anpassen:
 ```
