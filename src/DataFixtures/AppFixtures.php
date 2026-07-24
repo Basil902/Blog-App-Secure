@@ -25,7 +25,6 @@ class AppFixtures extends Fixture
             ['name' => 'Bob Schmidt',   'email' => 'bob@example.com',    'password' => 'securepass'],
             ['name' => 'Clara Weber',   'email' => 'clara@example.com',  'password' => 'mypassword'],
             ['name' => 'David Koch',    'email' => 'david@example.com',  'password' => 'test1234'],
-            ['name' => 'Emma Bauer',    'email' => 'emma@example.com',   'password' => 'emma2024'],
             ['name' => 'Admin', 'email' => 'admin@example.com', 'password' => 'admin123'],
             ];
 
