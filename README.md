@@ -35,6 +35,11 @@ DATABASE_URL="mysql://user:password@127.0.0.1:3306/dbname?serverVersion=8.0"
 symfony console doctrine:database:create
 ```
 
+3. Migrationen erstellen:
+```
+symfony console doctrine:migrations:diff
+```
+
 3. Migrationen ausführen:
 ```
 symfony console doctrine:migrations:migrate
