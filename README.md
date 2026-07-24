@@ -19,10 +19,10 @@ symfony server:start
 ```
 Die App ist danach unter http://localhost:8000 erreichbar.
 
-## Datenbankeinrichten und Daten vorbereiten
+## Datenbank einrichten und Testdaten vorbereiten
 Vor dem Testen müssen die Tabellen in der Datenbank erstellt und mit Testdaten befüllt werden. Dafür muss zuerst der DSN String in der .env Datei angepasst werden.
 
-1. Den Inhalt aus .env.example in .env kopieren und die Datenbankverbindung entsprechend herstellen:
+1. Eine neue Datei .env erstellen und den Inhalt aus .env.example da rein kopieren. Danach in der .env Datei die Datenbankverbindung entsprechend anpassen:
 
 ```
 DATABASE_URL="mysql://user:password@127.0.0.1:3306/dbname?serverVersion=8.0"
